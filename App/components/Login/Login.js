@@ -15,6 +15,11 @@ export default class Login extends Component {
         };
     }
 
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: "Login"
+        };
+    };
 
     handleSubmit() {
 
@@ -71,6 +76,7 @@ export default class Login extends Component {
                         title="Log In"
                         onPress={this.handleSubmit.bind(this)}
                     />
+
                 </View>
             </KeyboardAvoidingView >
         );

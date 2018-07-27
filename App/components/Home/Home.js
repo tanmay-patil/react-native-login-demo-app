@@ -2,9 +2,30 @@ import React, { Component } from 'react';
 import {
     AsyncStorage, Text, TextInput, View, Button, StatusBar
 } from 'react-native';
+import LogoutButton from '../../utilities/';
 import styles from "./styles";
 
 export default class Home extends React.Component {
+
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: "Dashboard",
+            headerLeft: null,
+            headerRight: (<LogoutButton navigationProp={navigation.getParam('navigationProp')} />),
+            headerStyle: {
+                backgroundColor: '#82c182',
+                shadowRadius: 0,
+                elevation: 0,
+                shadowOffset: {
+                    height: 0
+                },
+            },
+        };
+    };
+
+    componentWillMount() {
+        this.props.navigation.setParams({ navigationProp: this.props.navigation });
+    }
 
     logOut = async () => {
         try {
@@ -37,10 +58,6 @@ export default class Home extends React.Component {
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                 <Text>Home Screen</Text>
-                <Button
-                    onPress={this.logOut}
-                    title="Logout"
-                />
             </View>
         );
     }

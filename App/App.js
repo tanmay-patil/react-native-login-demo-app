@@ -1,6 +1,6 @@
 import Reactotron from 'reactotron-react-native';
 import React from 'react';
-import { AsyncStorage, View } from "react-native"
+import { AsyncStorage, View, Button } from "react-native"
 import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import SplashScreen from 'react-native-splash-screen';
 import Login from "./components/Login/Login";
@@ -25,16 +25,7 @@ const AppStack = createStackNavigator({
 }, {
         headerMode: 'screen',
         navigationOptions: {
-            title: "Dashboard",
-            headerLeft: null,
-            headerStyle: {
-                backgroundColor: '#82c182',
-                shadowRadius: 0,
-                elevation: 0,
-                shadowOffset: {
-                    height: 0
-                },
-            },
+            title: "App Stack"
         }
     });
 const AuthStack = createStackNavigator(
@@ -45,7 +36,7 @@ const AuthStack = createStackNavigator(
     }, {
         headerMode: 'screen',
         navigationOptions: {
-            title: "Login",
+            title: "Auth Stack",
             headerLeft: null,
             headerStyle: {
                 backgroundColor: '#1583BE',
