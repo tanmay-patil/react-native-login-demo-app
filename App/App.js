@@ -81,6 +81,7 @@ class App extends React.Component {
     checkLoginStatus = async () => {
         try {
             const value = await AsyncStorage.getItem('isLogged');
+
             if (value != null) {
                 this.props.setIsLoggedStatus(value);
             }
@@ -104,8 +105,8 @@ class App extends React.Component {
     };
 
     render() {
-        // this.showAllAsyncKeys();
-        console.log(this.props);
+        this.showAllAsyncKeys();
+
         return (
             <View style={{ flex: 1 }}>
                 {this.AppNavigator()}
