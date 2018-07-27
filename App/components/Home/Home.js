@@ -13,12 +13,7 @@ export default class Home extends React.Component {
             headerLeft: null,
             headerRight: (<LogoutButton navigationProp={navigation.getParam('navigationProp')} />),
             headerStyle: {
-                backgroundColor: '#82c182',
-                shadowRadius: 0,
-                elevation: 0,
-                shadowOffset: {
-                    height: 0
-                },
+                backgroundColor: '#f0f0f0',
             },
         };
     };
@@ -39,25 +34,21 @@ export default class Home extends React.Component {
         }
     }
 
-    retrieveLoginData = async () => {
-        try {
-            const value = await AsyncStorage.getItem('isLogged');
-            console.log(value);
-            if (value !== null) {
-                // We have data!!
-                return value;
-            }
-        } catch (error) {
-            // Error retrieving data
-            console.log(error);
-        }
+    handleClick() {
+        console.log(this.props);
+        this.props.navigation.navigate('DeviceDetails');
     }
 
     render() {
-        console.log(this.retrieveLoginData());
+
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                 <Text>Home Screen</Text>
+                <Button
+                    onPress={this.handleClick.bind(this)}
+                    title="Go To Device Details"
+                    buttonStyle={{ color: "red", paddingTop: 5, paddingBottom: 5, paddingLeft: 8, paddingRight: 8 }}
+                />
             </View>
         );
     }
