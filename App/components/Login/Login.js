@@ -23,7 +23,7 @@ export default class Login extends Component {
         if (this.authenticateLogin()) {
             this.setLoginStatus();
 
-            this.props.screenProps.setLoginCredentials(dummyLoginCredentials);
+            // this.props.screenProps.setLoginCredentials(dummyLoginCredentials);
         }
     }
 
@@ -42,6 +42,7 @@ export default class Login extends Component {
     setLoginStatus = async () => {
         try {
             await AsyncStorage.setItem('isLogged', 'true');
+            this.props.navigation.navigate('App');
         } catch (error) {
             // Error saving data
             console.log("Async operation for storing failed");
@@ -58,7 +59,7 @@ export default class Login extends Component {
                     <TextInput
                         style={{ height: 40, width: 150, marginBottom: 10, padding: 5, borderColor: 'gray', borderWidth: 1 }}
                         onChangeText={(text) => this.setState({ username: text })}
-                        placeholder="Username2"
+                        placeholder="Username"
                     />
                     <TextInput
                         style={{ height: 40, width: 150, marginBottom: 10, padding: 5, borderColor: 'gray', borderWidth: 1 }}

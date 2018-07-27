@@ -10,7 +10,8 @@ export default class Home extends React.Component {
         try {
             await AsyncStorage.setItem('isLogged', 'false');
 
-            this.props.screenProps.setIsLoggedStatus("false");
+            // this.props.screenProps.setIsLoggedStatus("false");
+            this.props.navigation.navigate('Auth');
         } catch (error) {
             // Error saving data
             console.log(error);
