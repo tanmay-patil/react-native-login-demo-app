@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    Text, TextInput, View, Button, StatusBar, AsyncStorage
+    Text, TextInput, View, Button, StatusBar, AsyncStorage, KeyboardAvoidingView, Platform
 } from 'react-native';
 import styles from "./styles";
 
@@ -39,16 +39,19 @@ export default class Login extends Component {
 
     render() {
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <StatusBar
-                    barStyle="light-content"
-                />
-                <Text>Login Screen</Text>
-                <Button
-                    title="Log In"
-                    onPress={this.handleSubmit.bind(this)}
-                />
-            </View>
+            <KeyboardAvoidingView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} behavior={Platform.OS === 'ios' && "padding"} >
+                <View >
+                    <StatusBar
+                        barStyle="light-content"
+                    />
+                    <Text>Login Screen</Text>
+                    <TextInput style={{ height: 40, width: 100, borderColor: 'gray', borderWidth: 1 }} onChangeText={(text) => console.log(text)} />
+                    <Button
+                        title="Log In"
+                        onPress={this.handleSubmit.bind(this)}
+                    />
+                </View>
+            </KeyboardAvoidingView >
         );
     }
 }
