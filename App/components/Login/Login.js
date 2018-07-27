@@ -58,7 +58,7 @@ export default class Login extends Component {
                     <TextInput
                         style={{ height: 40, width: 150, marginBottom: 10, padding: 5, borderColor: 'gray', borderWidth: 1 }}
                         onChangeText={(text) => this.setState({ username: text })}
-                        placeholder="Username"
+                        placeholder="Username2"
                     />
                     <TextInput
                         style={{ height: 40, width: 150, marginBottom: 10, padding: 5, borderColor: 'gray', borderWidth: 1 }}
