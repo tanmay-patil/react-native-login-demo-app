@@ -1,5 +1,5 @@
 /** @format */
-
+import './ReactotronConfig';
 import { AppRegistry } from 'react-native';
 import Root from './Root';
 // import App from "./App/App";

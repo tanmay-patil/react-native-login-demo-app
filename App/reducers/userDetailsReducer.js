@@ -1,21 +1,21 @@
-import { UPDATE_USERNAME, UPDATE_PASSWORD } from "../constants/ActionTypes";
+import { UPDATE_LOGIN_CREDENTIALS, UPDATE_LOGIN_STATUS } from "../constants/ActionTypes";
+import { AsyncStorage } from "react-native"
 
 const initialState = {
-    username: 'admin',
-    password: 'admin'
+    username: "",
+    password: "",
+    isLogged: "false"
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
 
-        case UPDATE_USERNAME:
-            return { ...state, username: action.payload }
-        // return action.payload;
+        case UPDATE_LOGIN_CREDENTIALS:
+            // return { ...state, loginCredentials: action.object }
+            return action.object;
 
-
-        case UPDATE_PASSWORD:
-            return { ...state, password: action.payload }
-        // return action.payload;
+        case UPDATE_LOGIN_STATUS:
+            return { ...state, isLogged: action.value }
 
         default:
             return state;

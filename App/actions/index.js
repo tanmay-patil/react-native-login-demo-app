@@ -1,9 +1,9 @@
 import * as ACTION_TYPE from '../constants/ActionTypes';
 
-export function updateUsername(value) {
-    return { type: ACTION_TYPE.UPDATE_USERNAME, value };
+export function setLoginCredentials(object) {
+    return { type: ACTION_TYPE.UPDATE_LOGIN_CREDENTIALS, object };
 }
 
-export function updatePassword(value) {
-    return { type: ACTION_TYPE.UPDATE_PASSWORD, value };
-} 
+export function setIsLoggedStatus(value) {
+    return { type: ACTION_TYPE.UPDATE_LOGIN_STATUS, value };
+}
